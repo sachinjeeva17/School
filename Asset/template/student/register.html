@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NewUser</title>
+    <style>
+ body{
+background:url("/static/images1.jpg");
+background-size:cover;
+}
+#n1{
+margin-left:400px;
+box-sizing:border-box;
+width:40%;
+padding:75px;
+ background: rgba(130,130,130,.7);
+
+}
+#h1{
+text-align:center;
+margin-top:10px;
+margin-right:70px;
+}
+#ds1{
+width:250px;
+height:30px;
+border:2px solid;
+background-color:#d3d3d3;
+margin-left:17px;
+}
+#ds2{
+width:250px;
+height:30px;
+border:2px solid;
+background-color:#d3d3d3;
+margin-left:20px;
+margin-top:5px;
+}
+#ds3{
+width:250px;
+height:30px;
+border:2px solid;
+background-color:#d3d3d3;
+margin-left:50px;
+margin-top:5px;
+}
+#ds5{
+width:250px;
+height:30px;
+border:2px solid;
+background-color:#d3d3d3;
+margin-left:15px;
+margin-top:5px;
+}
+#ds6{
+width:250px;
+height:30px;
+border:2px solid;
+background-color:#d3d3d3;
+margin-left:40px;
+margin-top:5px;
+}
+input[type=password]{
+width:250px;
+height:30px;
+border:2px solid black;
+background-color:#d3d3d3;
+margin-top:10px;
+margin-left:22px;
+}
+select{
+width:50px;
+height:30px;
+margin-top:12px;
+margin-left:40px;
+border:2px solid;
+}
+#ds4{
+width:250px;
+height:30px;
+border:2px solid;
+background-color:#d3d3d3;
+margin-left:40px;
+margin-top:10px;
+}
+input[type=radio]{
+	margin-top:25px;
+	margin-left:50px;
+	border:2px solid;
+}
+.lab{
+	font-size:20px;
+}
+input[type=submit]{
+width:150px;
+margin-left:100px;
+margin-top:40px;
+font-size:15px;
+
+}
+input[type=submit]:hover{
+background-color:orange;
+color:#d3d3d3;
+}
+
+</style>
+<script>
+function valid()
+{
+var ch=/^[a-zA-Z]+$/;
+var aa=/^[A-Za-z]\w{7,14}$/;
+var z = /^\w+[\+\.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,4}|\d+)$/i;
+var fname = document.myform.fname.value;
+        if(fname=="")
+            {
+            alert("Please enter your First Name");
+            document.myform.fname.focus();
+            return false;
+            }
+            if(!ch.test(fname))
+            {
+            alert("Please enter Alphabets Only")
+            document.myform.fname.focus();
+            return false;
+            }
+var lname = document.myform.lname.value;
+        if(lname=="")
+            {
+            alert("Please enter your Last Name");
+            document.myform.lname.focus();
+            return false;
+            }
+            if(!ch.test(lname))
+            {
+            alert("Please enter Alphabets Only")
+            document.myform.lname.focus();
+            return false;
+            }
+var user = document.myform.user.value;
+        if(lname=="")
+            {
+            alert("Please enter your Last Name");
+            document.myform.user.focus();
+            return false;
+            }
+            if(!ch.test(user))
+            {
+            alert("Please enter Alphabets Only")
+            document.myform.user.focus();
+            return false;
+            }
+
+var password = document.myform.password.value;
+        if(password=="")
+            {
+            alert("Please Enter Your Password");
+            document.myform.password.focus();
+            return false;
+            }
+        if(!aa.test(password))
+            {
+	         alert("Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters");
+	         document.myform.password.focus();
+	         return false;
+            }
+var email=document.myform.email.value;
+        if(email=="")
+            {
+            alert("Please enter your User Name");
+            document.myform.email.focus();
+            return false;
+            }
+        if(z.test(email)==false)
+            {
+            alert("Please enter valid Email");
+            document.myform.email.focus();
+            return false;
+            }
+var a=document.myform.num.value;
+        if(a=="")
+            {
+            alert("Please enter your Mobile Number");
+            document.myform.num.focus();
+            return false;
+            }
+            if (a.length != 10)
+            {
+            alert("Enter valid Mobile Number");
+             document.myform.num.focus();
+            return false;
+            }
+            if(ch.test(a))
+            {
+            alert("Please enter Number Only")
+            document.myform.num.focus();
+            return false;
+            }
+var gender = document.myform.gender.value;
+         if(gender=="")
+            {
+            alert("Please enter gender");
+            document.myform.gender.focus();
+            return false;
+            }
+        if(gender==male || gender==female)
+            {
+                return true;
+            }
+         else{
+          alert("Please enter only male or female");
+            document.myform.gender.focus();
+            return false;
+
+         }
+}
+</script>
+</head>
+<body>
+<h1 style="color:yellow; font-family: ;font-size:30px;margin-left:350px;">WEB ACCESS FOR SCHOOL AND COLLEGE</h1>
+
+<div id="n1">
+<h1 id="h1">SignUp</h1>
+<form name="myform" method="POST" onsubmit="return valid()">
+    {% csrf_token %}
+    <label class="lab">Firstname:</label>
+    <input type="text" name="fname" id="ds1" ><br>
+    <label class="lab">Lastname:</label>
+    <input type="text" name="lname" id="ds2" ><br>
+    <label class="lab">Username:</label>
+    <input type="text" name="user" id="ds5" ><br>
+    <label class="lab">Password:</label>
+    <input type="password" name="password" ><br>
+    <label class="lab">Email:</label>
+    <input type="text" name="email" id="ds3"><br>
+	<label class="lab">Mobile:</label>
+    <input type="text" name="num" id="ds4" ><br>
+    <label class="lab">Gender:</label>
+    <input type="text" name="gender" id="ds6" ><br>
+    <input type="submit" value="submit">
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{% extends 'Teacher/admindesign.html' %}
+{% block userblock %}
+{% load staticfiles %}
+<style>
+form{
+position:absolute;
+margin-top:100px;
+margin-left:350px;
+color:white;
+background:rgb(0, 204, 102);
+padding:10px;
+
+}
+    #ds1{
+width:250px;
+height:30px;
+border:2px solid;
+background-color:#d3d3d3;
+margin-left:55px;
+
+}
+input[type=submit]{
+width:20%;
+height:40px;
+background-color:green;
+color:white;
+padding 20px;
+margin-top:10px;
+margin-left:130px;
+}
+input[type=submit]:hover{
+background-color:blue;
+color:orange;
+}
+#n3{
+border:1px solid black;
+margin-left:90px;
+}
+</style>
+<h1 style="position:absolute;margin-left:450px;color:red;font-size:35px;">NOTIFICATIONS</h1>
+ <form name="myform" method="POST">
+    {% csrf_token %}
+    <label class="lab">Date</label>
+    <input type="date" name="date" id="ds1"><br><br>
+      <label style="position:absolute;margin-top:10px;">Notification</label>
+    <textarea  name="message" rows="4" cols="60" placeholder="Message" id="n3"></textarea><br>
+     <input type="submit" value="submit">
+ </form>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'student/design.html' %}
+{% block userblock %}
+{% load staticfiles %}
+<style>
+    #cus {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top:-20px;
+}
+
+#cus td, #cus th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+#cus tr:nth-child(even){background-color: #f2f2f2;}
+#cus tr:hover {background-color: #ddd;}
+#cus th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: black;
+}
+</style>
+<div id="cus">
+    <table border="1" width="100%" style="border:1px solid red;color:white;margin-top:10px;"><tr style="color:white; text-align:center;"><th>Topic</th><th>UPLOAD</th><th>Description</th><th>Download</th></tr>
+{% for i in list1 %}
+    <tr>
+    <td style="color:black;">{{i.name}}</td>
+     <td style="color:black;">{{i.upload}}</td>
+     <td style="color:black;"> {{i.description}}</td>
+      <td><a href="{% url 'download' i.id %}" style="text-decoration:none;color:black;">download</a> </td>
+     </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+     body{
+         background: url("{% static 'bg.jpg' %}");
+         background-size:cover;
+   background-repeat: no-repeat;
+
+        }
+    #h1{
+position:absolute;
+margin-left:200px;
+font-size:30px;
+}
+.form{
+width:40%;
+height:auto;
+margin-top:100px;
+margin-left:400px;
+position:fixed;
+}
+input[type=text]{
+width:300px;
+height:40px;
+border:1px solid ;
+border-radius:25px;
+background-color:#d3d3d3;
+margin-left:10px;
+}
+input[type=password]{
+width:300px;
+height:40px;
+border:1px solid ;
+border-radius:25px;
+background-color:#d3d3d3;
+margin-left:13px;
+}
+input[type=submit]{
+width:100px;
+height:30px;
+margin-top:20px;
+margin-left:120px;
+}
+input[type=submit]:hover{
+background-color:orange;
+color:#d3d3d3;
+}
+#button{
+width:50px;
+height:60px;
+margin-left:120px;
+margin-top:20px;
+}
+#button a{
+text-decoration:none;
+color:black;
+}
+#button a:hover{
+background-color:orange;
+color:#d3d3d3;
+}
+ marquee{
+font-size:25px;
+height:110px;
+width:1330px;
+margin-top:450px;
+color:yellow;
+float:left;
+}
+h4{
+font-size:20px;
+}
+h4 a{
+text-decoration:none;
+color:white;
+margin-left:140px;
+}
+</style>
+
+</head>
+<body>
+<div class="form">
+<h1 style="margin-left:120px;color:red;">Student Login</h1>
+<form method="POST">
+    {% csrf_token %}
+<label style="font-size:20px;color:#8b0a50;background:#ffffff;">Username</label>
+<input type="text" name="username"><br><br>
+<label style="font-size:20px;color:#8b0a50;background:#ffffff;">Password</label>
+<input type="password" name="password"><br>
+<input type="submit" value="submit">
+<a href="{% url 'register' %}" style="margin-left:10px;text-decoration:none;font-size:20px;color:white;"> if you are new!Signup</a><br>
+    <h4><a href="{% url 'Signup' %}">Teacher Login</a> </h4>
+<h4><a href="{% url 'log' %}"style="margin-top:-20px;">Admin login</a> </h4>
+</form>
+</div>
+
+
+</body>
+</html>

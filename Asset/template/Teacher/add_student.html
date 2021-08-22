@@ -1,0 +1,58 @@
+{% extends 'Teacher/admindesign.html' %}
+{% block userblock %}
+{% load staticfiles %}
+<style>
+ #h1{
+text-align:center;
+margin-top:10px;
+margin-right:70px;
+}
+
+.lab{
+	font-size:20px;
+}
+input[type=submit]{
+width:150px;
+margin-left:100px;
+margin-top:40px;
+font-size:15px;
+}
+input[type=submit]:hover{
+background-color:orange;
+color:#d3d3d3;
+}
+.label{
+width:300px;
+height:30px;
+border:1px solid;
+border-radius:20px;
+background-color:#d3d3d3;
+}
+.div{
+margin-left:400px;
+box-sizing:border-box;
+width:45%;
+padding:75px;
+background: rgba(130,130,130,.1);
+}
+</style>
+<div class="div">
+    <h1 id="h1">Add Student_Detail</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label class="lab">StudentName</label><br>
+    <input type="text" name="sname" placeholder="studentname" class="label">
+    <label class="lab">Class</label><br>
+    <input type="text" name="class" placeholder="class" class="label">
+    <label class="lab">Date</label><br>
+    <input type="date" name="date" placeholder="date" class="label">
+    <label class="lab">RollNumber</label><br>
+    <input type="text" name="rno" placeholder="rno" class="label">
+    <label class="lab">Gender</label><br>
+    <input type="text" name="gen" placeholder="gender" class="label">
+    <label class="lab">AdmissionNumber</label><br>
+    <input type="text" name="ad" placeholder="ad" class="label"><br>
+    <input type="submit" value="submit">
+</form>
+</div>
+{% endblock %}
